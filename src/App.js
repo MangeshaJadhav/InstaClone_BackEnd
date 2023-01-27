@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+// import Header from './components/header/header';
+// import PostView from "./components/post-view/post-view";
+// var cors=require('cors');
+// var bodyParser=require('body-parser');
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Landing from "./components/landing-page/landing-page";
+import PostView from "./components/post-view/post-view";
+import { AddNewPost } from './AddNewPost';
+import { ShowPosts } from './ShowPosts';
 
-function App() {
+export const App=()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Header/>
+    <PostView/> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path ='/post-view' element={<PostView/>}/>
+          <Route path ='/post' element={<AddNewPost/>}/>
+          <Route path ='/view' element={<ShowPosts/>}/>
+
+        </Routes>
+      </BrowserRouter>
+
+
+
+
+    </>
   );
 }
 
 export default App;
+/**
+ * // npx json-server --watch src/data.json --port 3004
+ */
